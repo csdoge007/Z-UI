@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import Collapse from './components/Collapse/Collapse.vue';
+import Item from './components/Collapse/CollapseItem.vue';
+
 import { onMounted, ref } from 'vue';
 import Button from './components/Button/Button.vue';
 import type { ButtonInstance } from './components/Button/types';
@@ -8,6 +11,7 @@ onMounted(() => {
     console.log(buttonInstance.value._ref);
   }
 })
+const activeItems = ['A'];
 </script>
 
 <template>
@@ -51,6 +55,16 @@ onMounted(() => {
 
     <Button size="large">Large</Button>
     <Button size="small">Small</Button>
+    <Collapse :activeItems="activeItems">
+      <Item title="标题" name="A">
+        <template #title>
+          <h1>Here might be a page title</h1>
+        </template>
+        content
+      </Item>
+    </Collapse>
+
+
   </main>
 </template>
 
