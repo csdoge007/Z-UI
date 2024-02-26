@@ -5,13 +5,14 @@ import Item from './components/Collapse/CollapseItem.vue';
 import { onMounted, ref } from 'vue';
 import Button from './components/Button/Button.vue';
 import type { ButtonInstance } from './components/Button/types';
+import type { NameType } from './components/Collapse/types'
 const buttonInstance = ref<ButtonInstance | null>();
 onMounted(() => {
   if (buttonInstance.value) {
     console.log(buttonInstance.value._ref);
   }
 })
-const activeItems = ['A'];
+const activeItems = ref<NameType[]>(['A']);
 </script>
 
 <template>
@@ -55,12 +56,20 @@ const activeItems = ['A'];
 
     <Button size="large">Large</Button>
     <Button size="small">Small</Button>
-    <Collapse :activeItems="activeItems">
+
+
+    <Collapse v-model="activeItems" accordion>
       <Item title="标题" name="A">
         <template #title>
-          <h1>Here might be a page title</h1>
+          <h1>Here might be a page titleA</h1>
         </template>
-        content
+        contentA
+      </Item>
+      <Item title="标题" name="B">
+        <template #title>
+          <h1>Here might be a page titleB</h1>
+        </template>
+        contentB
       </Item>
     </Collapse>
 

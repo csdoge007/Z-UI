@@ -1,13 +1,22 @@
-export type nameType = string | number;
-export const activeSymbol = Symbol('activeItems');
+import type { InjectionKey, Ref } from 'vue'
+export type NameType = string | number;
+interface CollapseContext {
+  activeItems: Ref<NameType[]>;
+  handleClickItem: (name: NameType) => void;
+}
+export const collapseContextSymbol = Symbol('activeSymbol') as InjectionKey<CollapseContext>;
 export interface ItemProps {
-  name: nameType;
+  name: NameType;
   title: string;
   disabled?: boolean;
 }
 
 export interface CollapseProps {
-  activeItems: string[];
+  modelValue: NameType[];
   accordion?: boolean;
+}
+
+export interface CollapseEmits {
+  (e: 'update:modelValue', value: NameType[]): void;
 }
 
