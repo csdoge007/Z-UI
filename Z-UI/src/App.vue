@@ -63,7 +63,8 @@ const activeItems = ref<NameType[]>(['A']);
         <template #title>
           <h1>Here might be a page titleA</h1>
         </template>
-        contentA
+        <h1>headline title</h1>
+        <div> this is content a aaa </div>
       </Item>
       <Item title="标题" name="B">
         <template #title>
