@@ -8,6 +8,9 @@
 import { ref, provide, watch } from 'vue';
 import type { NameType, CollapseProps, CollapseEmits } from './types';
 import { collapseContextSymbol } from './types';
+defineOptions({
+  name: 'VkCollapse'
+})
 const props = defineProps<CollapseProps>();
 const emits = defineEmits<CollapseEmits>();
 const activeItems = ref<NameType[]>(props.modelValue);

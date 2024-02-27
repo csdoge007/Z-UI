@@ -5,15 +5,25 @@
       'is-disabled': disabled
     }"
   >
-    <div class="zk-collapse-item__header" @click="handleClick">
+    <div 
+      class="zk-collapse-item__header" 
+      @click="handleClick" 
+      :class="{
+        'is-disabled': disabled,
+        'is-active': isActive
+      }"
+    >
       <slot name="title">{{ title }}</slot>
     </div>
-    <div 
-      class="zk-collapse-item__content"
-      v-show="isActive"
-    >
-      <slot></slot>
-    </div>
+    <Transition name="slide" v-on="transitionEvents">
+      <div class="zk-collapse-item__wrapper" v-show="isActive">
+        <div 
+          class="zk-collapse-item__content"
+        >
+          <slot></slot>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -21,6 +31,9 @@
 import type { ItemProps } from './types';
 import { computed, inject } from 'vue';
 import { collapseContextSymbol } from './types';
+defineOptions({
+  name: 'VkCollapseItem'
+})
 const props = defineProps<ItemProps>();
 const collapseContext = inject(collapseContextSymbol);
 const isActive = computed(() => collapseContext?.activeItems.value.includes(props.name));
@@ -29,6 +42,30 @@ const handleClick = () => {
     return;
   }
   collapseContext?.handleClickItem(props.name);
+}
+const transitionEvents: Record<string, (el: HTMLElement) => void> = {
+  beforeEnter(el) {
+    el.style.height = '0px'
+    el.style.overflow = 'hidden'
+  },
+  enter(el) {
+    el.style.height = `${el.scrollHeight}px`
+  },
+  afterEnter(el) {
+    el.style.height = ''
+    el.style.overflow = ''
+  },
+  beforeLeave(el) {
+    el.style.height = `${el.scrollHeight}px`
+    el.style.overflow = 'hidden'
+  },
+  leave(el) {
+    el.style.height = '0px'
+  },
+  afterLeave(el) {
+    el.style.height = ''
+    el.style.overflow = ''
+  }
 }
 </script>
 
