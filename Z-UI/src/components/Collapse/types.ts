@@ -19,4 +19,3 @@ export interface CollapseProps {
 export interface CollapseEmits {
   (e: 'update:modelValue', value: NameType[]): void;
 }
-

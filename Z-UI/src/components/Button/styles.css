@@ -78,6 +78,9 @@
     background-color: var(--zk-button-disabled-bg-color);
     border-color: var(--zk-button-disabled-border-color);
   }
+  [class*=zk-icon] + span {
+    margin-left: 5px;
+  }
 }
 @each $val in primary,success,warning,info,danger {
   .zk-button--$(val) {

@@ -9,7 +9,7 @@ import { ref, provide, watch } from 'vue';
 import type { NameType, CollapseProps, CollapseEmits } from './types';
 import { collapseContextSymbol } from './types';
 defineOptions({
-  name: 'VkCollapse'
+  name: 'ZkCollapse'
 })
 const props = defineProps<CollapseProps>();
 const emits = defineEmits<CollapseEmits>();

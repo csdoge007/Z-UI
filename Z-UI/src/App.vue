@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import Collapse from './components/Collapse/Collapse.vue';
 import Item from './components/Collapse/CollapseItem.vue';
-
+import Icon from './components/Icon/Icon.vue';
 import { onMounted, ref } from 'vue';
 import Button from './components/Button/Button.vue';
 import type { ButtonInstance } from './components/Button/types';
-import type { NameType } from './components/Collapse/types'
+import type { NameType } from './components/Collapse/types';
 const buttonInstance = ref<ButtonInstance | null>();
 onMounted(() => {
   if (buttonInstance.value) {
@@ -52,7 +52,8 @@ const activeItems = ref<NameType[]>(['A']);
     <Button type="danger" circle>Danger</Button>
     <Button disabled circle>Disabled</Button><br /><br />
 
-
+    <Button loading></Button>
+    <Button icon="angle-left">你好</Button>
 
     <Button size="large">Large</Button>
     <Button size="small">Small</Button>
@@ -62,6 +63,7 @@ const activeItems = ref<NameType[]>(['A']);
       <Item title="标题" name="A">
         <template #title>
           <h1>Here might be a page titleA</h1>
+          <!-- <Icon icon="arrow-up" size="2xl" type="danger" color="#BBFFFF"></Icon> -->
         </template>
         <h1>headline title</h1>
         <div> this is content a aaa </div>
@@ -73,7 +75,6 @@ const activeItems = ref<NameType[]>(['A']);
         contentB
       </Item>
     </Collapse>
-
 
   </main>
 </template>
