@@ -10,10 +10,12 @@
       'is-circle': circle,
       'is-disabled': disabled,
     }"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
   >
+  <Icon icon="spinner" spin v-if="loading"></Icon>
+  <Icon :icon="icon" v-if="icon"></Icon>
     <span>
       <slot></slot>
     </span>
@@ -23,6 +25,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { ButtonProps } from './types';
+import Icon from '../Icon/Icon.vue';
 defineOptions({
   name: 'ZkButton'
 })

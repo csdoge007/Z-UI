@@ -33,7 +33,13 @@
   }
   &.is-active {
     border-bottom-color: transparent;
+    .header-icon {
+      transform: rotate(90deg);
+    }
   }
+}
+.header-icon {
+  transition: transform var(--vk-transition-duration);
 }
 .zk-collapse-item__content {
   will-change: height;
@@ -46,5 +52,5 @@
   padding-bottom: 15px;
 }
 .slide-enter-active, .slide-leave-active {
-  transition: height 1s ease-in-out;
+  transition: height 0.5s ease-in-out;
 }

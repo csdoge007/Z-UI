@@ -66,4 +66,7 @@
     --zk-disabled-bg-color: var(--zk-fill-color-light);
     --zk-disabled-text-color: var(--zk-text-color-placeholder);
     --zk-disabled-border-color: var(--zk-border-color-light);
+    /*animation*/
+    --vk-transition-duration: .3s;
+    --vk-transition-duration-fast: .2s;
 }

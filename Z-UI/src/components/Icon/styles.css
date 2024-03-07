@@ -1,0 +1,10 @@
+.zk-icon {
+  color: var(--zk-icon-color);
+}
+
+
+@each $val in primary,info,success,warning,danger {
+  .zk-icon--$(val) {
+    --zk-icon-color: var(--zk-color-$(val));
+  }
+}
