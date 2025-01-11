@@ -19,7 +19,7 @@ watch(() => props.modelValue, () => {
 })
 const handleClickItem = (name: NameType) => {
   if (props.accordion) {
-    activeItems.value = [activeItems.value[0] === name ? '' : name]; 
+    activeItems.value = activeItems.value[0] === name ? [] : [name]; 
   } else {
     const index = activeItems.value.indexOf(name);
     if (index != -1) {

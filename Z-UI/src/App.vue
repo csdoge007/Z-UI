@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Collapse from './components/Collapse/Collapse.vue';
 import Item from './components/Collapse/CollapseItem.vue';
-import Icon from './components/Icon/Icon.vue';
+// import Icon from './components/Icon/Icon.vue';
 import { onMounted, ref } from 'vue';
 import Button from './components/Button/Button.vue';
 import type { ButtonInstance } from './components/Button/types';

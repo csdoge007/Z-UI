@@ -28,7 +28,7 @@ import type { ButtonProps } from './types';
 import Icon from '../Icon/Icon.vue';
 defineOptions({
   name: 'ZkButton'
-})
+});
 withDefaults(defineProps<ButtonProps>(), {
   nativeType: 'button',
 });
