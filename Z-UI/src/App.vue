@@ -4,6 +4,7 @@ import Item from './components/Collapse/CollapseItem.vue';
 import Icon from './components/Icon/Icon.vue';
 import { onMounted, ref } from 'vue';
 import Button from './components/Button/Button.vue';
+import Message from './components/Message/Message.vue';
 import type { ButtonInstance } from './components/Button/types';
 import type { NameType } from './components/Collapse/types';
 const buttonInstance = ref<ButtonInstance | null>();
