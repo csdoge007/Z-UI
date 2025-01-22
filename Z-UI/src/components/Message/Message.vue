@@ -22,7 +22,7 @@ import type { MessageProps } from './types'
 import RenderVnode from '../Common/RenderVnode'
 const props = withDefaults(defineProps<MessageProps>(), {
   type: 'info',
-  duration: 3000
+  duration: 2800
 })
 </script>
 
