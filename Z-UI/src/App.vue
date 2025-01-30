@@ -7,8 +7,17 @@ import Button from './components/Button/Button.vue';
 import Message from './components/Message/Message.vue';
 import type { ButtonInstance } from './components/Button/types';
 import type { NameType } from './components/Collapse/types';
+import { createMessage } from './components/Message/method'
 const buttonInstance = ref<ButtonInstance | null>();
 onMounted(() => {
+  createMessage({
+    message: 'Hello World',
+    duration: 0,
+  })
+  createMessage({
+    message: 'Hello World again',
+    duration: 3000,
+  })
   if (buttonInstance.value) {
     console.log(buttonInstance.value._ref);
   }
@@ -20,7 +29,7 @@ const activeItems = ref<NameType[]>(['A']);
   <!-- <Button ref="buttonInstance">TestButton</Button>
       
     <Button ref="buttonRef">Test Button</Button> -->
-  <Message message="Hello World" :duration="0" showClose />
+  <!-- <Message message="Hello World" :duration="0" showClose /> -->
   <main>
     <Button>Default</Button>
     <Button type="primary">Primary</Button>
