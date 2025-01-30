@@ -20,6 +20,7 @@ const activeItems = ref<NameType[]>(['A']);
   <!-- <Button ref="buttonInstance">TestButton</Button>
       
     <Button ref="buttonRef">Test Button</Button> -->
+  <Message message="Hello World" :duration="0" showClose />
   <main>
     <Button>Default</Button>
     <Button type="primary">Primary</Button>

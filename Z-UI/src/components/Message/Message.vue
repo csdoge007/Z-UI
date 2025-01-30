@@ -14,7 +14,7 @@
       </slot>
     </div>
     <div class="vk-message__close" v-if="showClose">
-      <Icon icon="xmark" />
+      <Icon @click.stop="$event => visible = false" icon="xmark" />
     </div>
   </div>
 </template>
