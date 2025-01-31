@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import type { MessageProps } from './types'
 import RenderVnode from '../Common/RenderVnode'
 import Icon from '../Icon/Icon.vue'
@@ -37,6 +37,11 @@ const startCloseTimer = () => {
 }
 onMounted(() => {
   startCloseTimer()
+})
+watch(visible, () => {
+  if (!visible.value) {
+    props.onDestory()
+  }
 })
 </script>
 
