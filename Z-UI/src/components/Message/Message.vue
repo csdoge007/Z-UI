@@ -24,11 +24,14 @@ import { ref, onMounted, watch } from 'vue'
 import type { MessageProps } from './types'
 import RenderVnode from '../Common/RenderVnode'
 import Icon from '../Icon/Icon.vue'
+import { getLastInstance } from './method'
 const props = withDefaults(defineProps<MessageProps>(), {
   type: 'info',
   duration: 2800
 })
 const visible = ref(true)
+const prevInstance = getLastInstance()
+console.log('prevInstance', prevInstance)
 const startCloseTimer = () => {
   if (props.duration <= 0) return
   setTimeout(() => {
@@ -38,8 +41,8 @@ const startCloseTimer = () => {
 onMounted(() => {
   startCloseTimer()
 })
-watch(visible, () => {
-  if (!visible.value) {
+watch(visible, (newValue) => {
+  if (!newValue) {
     props.onDestory()
   }
 })
