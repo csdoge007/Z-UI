@@ -16,9 +16,6 @@
   >
   <Icon icon="spinner" spin v-if="loading"></Icon>
   <Icon :icon="icon" v-if="icon"></Icon>
-    <span>
-      <slot></slot>
-    </span>
   </button>
 </template>
 
